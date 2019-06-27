@@ -1,5 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/models/product.model';
+
+
+const devProducts: Product[] = [
+  {
+    id: 1,
+    name: 'iPhone',
+    description: 'The best one!',
+    url: 'apple.com/iphone'
+  },
+  {
+    id: 2,
+    name: 'Samsung Galaxy 10',
+    description: 'Ugly piece of shit.',
+    url: 'reddit.com/r/samsungmasterrace'
+  }
+];
 
 @Component({
   selector: 'app-analysis',
@@ -8,12 +24,16 @@ import { Product } from 'src/models/product.model';
 })
 export class AnalysisComponent implements OnInit {
 
-  searching: boolean;
+  @Input() searching: boolean;
   products: Product[];
 
-  constructor() { }
+  constructor() { this.products = devProducts; }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+
   }
 
 }

@@ -1,14 +1,36 @@
 <div class=container>
-    <div *ngIf="!searching" class="center row">
+    <div *ngIf="!searching; else elseBlock" class="center row">
         <div class="col s12">
             <div class="row" id="searchBar">
-                <div class="input-field col s6 s12 red-text">
-                    <input type="text" placeholder="iPhone..." id="autocomplete" class="red-text">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Search for an item..." id="autocomplete">
                 </div>
+                <input type="button" value="Submit" class="waves-effect waves-light btn" (click)="onSubmit()">
             </div>
         </div>
     </div>
-    <div *ngFor="let item of products" class>
-
+    <ng-template #elseBlock>
+        <mat-progress-spinner></mat-progress-spinner>
+    </ng-template>
+    
+    <div fxLayout="row wrap" class="cards">
+        <div class="product-card">
+            <mat-card *ngFor="let item of products" class="product-card">
+                <mat-card-header>
+                    <mat-card-title>{{item.name}}</mat-card-title>
+                    <mat-card-subtitle>{{item.url}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>{{item.description}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button class="waves-effect waves-light btn" mat-button>
+                        Search for {{ item.name }}
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
     </div>
+
 </div>
