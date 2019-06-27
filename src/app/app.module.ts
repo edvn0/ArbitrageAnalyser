@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from '../components/navigation/navigation.component';
 import { SearchComponent } from '../components/search/search.component';
 import { ProductsComponent } from '../components/products/products.component';
+import { ProductsService } from '../services/products.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProductsComponent } from '../components/products/products.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ ProductsService, ProductsComponent ],
+  bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+}
