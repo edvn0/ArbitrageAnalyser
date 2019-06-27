@@ -7,6 +7,9 @@
 # Only exists if Bazel was run
 /bazel-out
 
+# own stuff
+localReadMe.txt
+
 # dependencies
 /node_modules
 
