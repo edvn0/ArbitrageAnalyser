@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +35,7 @@ import { ContactComponent } from '../components/contact/contact.component';
     MatIconModule,
     MatProgressSpinnerModule,
     MatCardModule,
+    MatTooltipModule
   ],
   providers: [ ProductsService ],
   bootstrap: [ AppComponent ]

@@ -15,7 +15,7 @@
     
     <div fxLayout="row wrap" class="cards">
         <div class="product-card-wrapper">
-            <mat-card *ngFor="let item of products" class="product-card">
+            <mat-card *ngFor="let item of products" class="product-card z-depth-2">
                 <mat-card-title-group>
                         <mat-card-title>{{item.name}}</mat-card-title>
                         <mat-card-subtitle>{{item.url}}</mat-card-subtitle>
@@ -26,13 +26,13 @@
                 </mat-card-content>
                 <mat-card-actions>
                     <div class="btn-group">
-                        <button class="waves-effect waves-light btn" mat-button>
-                            <mat-icon>search</mat-icon>
+                        <button class="waves-effect waves-light btn z-depth-1>" mat-button>
+                        <mat-icon>search</mat-icon>
                         </button>
-                        <button class="waves-effect waves-light btn" mat-button>
+                        <button class="waves-effect waves-light btn z-depth-1" mat-button>
                             <mat-icon>add</mat-icon>
                         </button>
-                        <button class="waves-effect waves-light btn" mat-button>
+                        <button class="waves-effect waves-light btn z-depth-1" mat-button>
                             <mat-icon>help</mat-icon>
                         </button>
                     </div>
