@@ -14,20 +14,28 @@
     </ng-template>
     
     <div fxLayout="row wrap" class="cards">
-        <div class="product-card">
+        <div class="product-card-wrapper">
             <mat-card *ngFor="let item of products" class="product-card">
-                <mat-card-header>
-                    <mat-card-title>{{item.name}}</mat-card-title>
-                    <mat-card-subtitle>{{item.url}}</mat-card-subtitle>
-                </mat-card-header>
+                <mat-card-title-group>
+                        <mat-card-title>{{item.name}}</mat-card-title>
+                        <mat-card-subtitle>{{item.url}}</mat-card-subtitle>
+                        <img mat-card-sm-image>
+                </mat-card-title-group>
                 <mat-card-content>
                     <p>{{item.description}}</p>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button class="waves-effect waves-light btn" mat-button>
-                        Search for {{ item.name }}
-                        <mat-icon>search</mat-icon>
-                    </button>
+                    <div class="btn-group">
+                        <button class="waves-effect waves-light btn" mat-button>
+                            <mat-icon>search</mat-icon>
+                        </button>
+                        <button class="waves-effect waves-light btn" mat-button>
+                            <mat-icon>add</mat-icon>
+                        </button>
+                        <button class="waves-effect waves-light btn" mat-button>
+                            <mat-icon>help</mat-icon>
+                        </button>
+                    </div>
                 </mat-card-actions>
             </mat-card>
         </div>

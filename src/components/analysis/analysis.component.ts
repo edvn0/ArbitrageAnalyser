@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/models/product.model';
+import { ProductsService } from 'src/services/products.service';
 
 
 const devProducts: Product[] = [
@@ -25,15 +26,21 @@ const devProducts: Product[] = [
 export class AnalysisComponent implements OnInit {
 
   @Input() searching: boolean;
-  products: Product[];
+  products: any = [];
 
-  constructor() { this.products = devProducts; }
+  constructor(private productService: ProductsService) {
+    productService
+      .getProducts()
+      .forEach((res) => {
+        this.products = res;
+      });
+  }
 
   ngOnInit() {
   }
 
   onSubmit() {
-
+    this.searching = true;
   }
 
 }

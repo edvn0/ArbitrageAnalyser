@@ -1,7 +1,24 @@
 .product-card {
-    margin-top: 10px;
+    border: 3px solid rgb(239, 109, 118);
+    margin-bottom: 10px;
 }
 
 .mat-icon {
     vertical-align: middle;
+}
+
+.btn-group {
+    width: 100%;
+    .btn {
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 29%;
+    }
+}
+
+img {
+    width: 100px;
+    height: 100px;
+
+    background-size: cover;
 }
