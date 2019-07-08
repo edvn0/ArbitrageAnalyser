@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -16,6 +17,7 @@ import { ProductsService } from '../services/products.service';
 import { AboutComponent } from '../components/about/about.component';
 import { HomeComponent } from '../components/home/home.component';
 import { ContactComponent } from '../components/contact/contact.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ContactComponent } from '../components/contact/contact.component';
     MatIconModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    MatTooltipModule
+    MatTooltipModule,
+    FormsModule
   ],
   providers: [ ProductsService ],
   bootstrap: [ AppComponent ]

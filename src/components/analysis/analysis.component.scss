@@ -1,5 +1,5 @@
 .product-card {
-    border: 3px solid rgb(239, 109, 118);
+    border: 3px solid rgb(77, 70, 172);
     margin-bottom: 10px;
 }
 
@@ -7,11 +7,15 @@
     vertical-align: middle;
 }
 
+button {
+    background-color: rgb(77, 70, 172);
+}
+
 .btn-group {
     width: 100%;
     .btn {
         margin: 0 2% 2% 2%;
-        width: 29%;
+        width: 28%;
     }
 }
 
