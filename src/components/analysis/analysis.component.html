@@ -1,44 +1,74 @@
 <div class=container>
-    <div *ngIf="!searching; else elseBlock" class="center row">
-        <div class="col s12">
-            <div class="row" id="searchBar">
-                <div class="input-field col s12">
-                    <input [(ngModel)]="search" [value]="search" type="text" placeholder="Search for an item..." id="search">
-                </div>
-                <input type="button" value="Submit" class="waves-effect waves-light btn" (click)="onSubmit()">
-            </div>
+  <div *ngIf="!searching; else loadingBlock" class="center row">
+    <div class="col s12">
+      <div class="row" id="searchBar">
+        <div class="input-field col s12">
+          <input [(ngModel)]="search" [value]="search" type="text" placeholder="Search for an item..." id="search">
         </div>
+        <input type="button" value="Submit" class="waves-effect waves-light btn" (click)="onSubmit()">
+      </div>
     </div>
-    <ng-template #elseBlock>
-        <mat-progress-spinner></mat-progress-spinner>
-    </ng-template>
-    
+  </div>
+  <ng-template #loadingBlock>
+    <p>Loading . . .</p>
+    <mat-progress-spinner></mat-progress-spinner>
+  </ng-template>
+  <div *ngIf="searchedForProducts.length > 0">
+    <div class="product-card-wrapper">
+      <div *ngIf="searchedForProducts | ArrayLength">
+        This works!
+      </div>
+      <mat-card *ngFor="let item of searchedForProducts; trackBy: id" class="product-card z-depth-2">
+        <mat-card-title>{{item.name}}</mat-card-title>
+        <mat-card-subtitle>{{item.url}}</mat-card-subtitle>
+        <mat-card-content>
+          <p>{{item.description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <div class="btn-group">
+            <button class="waves-effect waves-light btn z-depth-1" mat-button>
+              <mat-icon>search</mat-icon>
+            </button>
+            <button class="waves-effect waves-light btn z-depth-1" mat-button>
+              <mat-icon>add</mat-icon>
+            </button>
+            <button class="waves-effect waves-light btn z-depth-1" mat-button>
+              <mat-icon>help</mat-icon>
+            </button>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+  <div *ngIf="searchedForProducts.length == 0">
     <div fxLayout="row wrap" class="cards">
-        <div class="product-card-wrapper">
-            <mat-card *ngFor="let item of products; trackBy:id" class="product-card z-depth-2">
-                <mat-card-title-group>
-                        <mat-card-title>{{item.name}}</mat-card-title>
-                        <mat-card-subtitle>{{item.url}}</mat-card-subtitle>
-                        <img mat-card-sm-image>
-                </mat-card-title-group>
-                <mat-card-content>
-                    <p>{{item.description}}</p>
-                </mat-card-content>
-                <mat-card-actions>
-                    <div class="btn-group">
-                        <button class="waves-effect waves-light btn z-depth-1" mat-button>
-                        <mat-icon>search</mat-icon>
-                        </button>
-                        <button class="waves-effect waves-light btn z-depth-1" mat-button>
-                            <mat-icon>add</mat-icon>
-                        </button>
-                        <button class="waves-effect waves-light btn z-depth-1" mat-button>
-                            <mat-icon>help</mat-icon>
-                        </button>
-                    </div>
-                </mat-card-actions>
-            </mat-card>
-        </div>
+      <div class="product-card-wrapper">
+        <mat-card *ngFor="let item of products; trackBy:id" class="product-card z-depth-2">
+          <mat-card-title-group>
+            <mat-card-title>{{item.name}}</mat-card-title>
+            <mat-card-subtitle>{{item.url}}</mat-card-subtitle>
+            <img mat-card-sm-image>
+          </mat-card-title-group>
+          <mat-card-content>
+            <p>{{item.description}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="btn-group">
+              <button class="waves-effect waves-light btn z-depth-1" mat-button>
+                <mat-icon>search</mat-icon>
+              </button>
+              <button class="waves-effect waves-light btn z-depth-1" mat-button>
+                <mat-icon>add</mat-icon>
+              </button>
+              <button class="waves-effect waves-light btn z-depth-1" mat-button>
+                <mat-icon>help</mat-icon>
+              </button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
     </div>
+  </div>
 
 </div>

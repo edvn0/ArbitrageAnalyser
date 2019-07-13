@@ -18,6 +18,7 @@ import { AboutComponent } from '../components/about/about.component';
 import { HomeComponent } from '../components/home/home.component';
 import { ContactComponent } from '../components/contact/contact.component';
 
+import { ArrayLengthPipe } from '../pipes/arraylength.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ContactComponent } from '../components/contact/contact.component';
     AnalysisComponent,
     AboutComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    ArrayLengthPipe
   ],
   imports: [
     BrowserModule,
@@ -40,8 +42,8 @@ import { ContactComponent } from '../components/contact/contact.component';
     MatTooltipModule,
     FormsModule
   ],
-  providers: [ ProductsService ],
-  bootstrap: [ AppComponent ]
+  providers: [ProductsService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

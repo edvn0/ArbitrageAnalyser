@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Product } from 'src/models/product.model';
 import { ProductsService } from 'src/services/products.service';
 
@@ -7,29 +7,38 @@ import { ProductsService } from 'src/services/products.service';
   templateUrl: './analysis.component.html',
   styleUrls: ['./analysis.component.scss']
 })
-export class AnalysisComponent implements OnInit {
+export class AnalysisComponent implements OnInit, OnChanges {
 
   @Input() searching: boolean;
   search: string;
+
+  searchedForProducts: Product[] = [];
   products: Product[] = [];
 
   constructor(private productService: ProductsService) {
     productService
       .getProducts()
       .subscribe((res: Product[]) => {
-        this.products = res.map((el: Product) => new Product(el.id, el.name, el.description, el.url));
+        console.log(res);
+        this.products = res.map((el: Product) => new Product(el._id, el.name, el.description, el.url));
       });
   }
 
   ngOnInit() {
+    this.searchedForProducts = [];
+  }
+
+  ngOnChanges() {
+    this.searchedForProducts = [];
+
   }
 
   onSubmit() {
     this.searching = !this.searching;
-    const product = this
-      .productService.getProduct(this.search)
+    this.productService.getProduct(this.search)
       .subscribe((res) => {
-        console.log(res);
+        this.searchedForProducts.push(res as Product);
+        this.searching = !this.searching;
       });
   }
 

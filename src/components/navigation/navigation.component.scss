@@ -1,3 +1,9 @@
 .custom-color {
-    background-color: rgb(77, 70, 172);
+  background-color: rgb(77, 70, 172);
+}
+
+.active {
+  background: rgb(77, 70, 172);
+  background: linear-gradient(90deg, rgba(77, 70, 172, 1) 0%, rgba(172, 70, 70, 1) 50%, rgba(77, 70, 172, 1) 100%);
+  color: white;
 }
